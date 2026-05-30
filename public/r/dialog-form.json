@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dialog-form",
+  "title": "Dialog Form",
+  "description": "A reusable dialog shell for forms with scrollable content.",
+  "registryDependencies": [
+    "dialog"
+  ],
+  "files": [
+    {
+      "path": "components/ui/dialog-form.tsx",
+      "content": "import type * as React from \"react\";\n\nimport {\n  Dialog,\n  DialogContent,\n  DialogHeader,\n  DialogTitle,\n} from \"@/components/ui/dialog\";\n\nexport type DialogFormProps = {\n  title: string;\n  open: boolean;\n  onOpenChange: (open: boolean) => void;\n  children: React.ReactNode;\n};\n\nexport function DialogForm({\n  title,\n  open,\n  onOpenChange,\n  children,\n}: DialogFormProps) {\n  return (\n    <Dialog open={open} onOpenChange={onOpenChange}>\n      <DialogContent className=\"w-full md:max-w-150 lg:max-w-200\">\n        <DialogHeader>\n          <DialogTitle>{title}</DialogTitle>\n        </DialogHeader>\n        <div className=\"grid flex-1 no-scrollbar overflow-y-scroll max-h-screen md:max-h-[90vh]\">\n          {children}\n        </div>\n      </DialogContent>\n    </Dialog>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

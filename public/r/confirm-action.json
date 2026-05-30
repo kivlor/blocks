@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "confirm-action",
+  "title": "Confirm Action",
+  "description": "A confirmation dialog that can require typed confirmation before running an action.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "alert-dialog",
+    "button",
+    "input"
+  ],
+  "files": [
+    {
+      "path": "components/ui/confirm-action.tsx",
+      "content": "import { Loader2 } from \"lucide-react\";\nimport { useEffect, useState } from \"react\";\n\nimport {\n  AlertDialog,\n  AlertDialogCancel,\n  AlertDialogContent,\n  AlertDialogDescription,\n  AlertDialogFooter,\n  AlertDialogHeader,\n  AlertDialogTitle,\n} from \"@/components/ui/alert-dialog\";\nimport { Button } from \"@/components/ui/button\";\nimport { Input } from \"@/components/ui/input\";\n\nexport type ConfirmActionProps = {\n  title: string;\n  description: string;\n  open: boolean;\n  onOpenChange: (open: boolean) => void;\n  onConfirm: () => void;\n  actionPending: boolean;\n  confirmText?: string;\n};\n\nexport function ConfirmAction({\n  title,\n  description,\n  open,\n  onOpenChange,\n  onConfirm,\n  actionPending,\n  confirmText,\n}: ConfirmActionProps) {\n  const [typedConfirmation, setTypedConfirmation] = useState(\"\");\n\n  useEffect(() => {\n    if (!open) {\n      setTypedConfirmation(\"\");\n    }\n  }, [open]);\n\n  const requiresTypedConfirmation = Boolean(confirmText);\n  const isConfirmed =\n    !requiresTypedConfirmation || typedConfirmation.trim() === confirmText;\n\n  return (\n    <AlertDialog open={open} onOpenChange={onOpenChange}>\n      <AlertDialogContent>\n        <AlertDialogHeader>\n          <AlertDialogTitle>{title}</AlertDialogTitle>\n          <AlertDialogDescription>{description}</AlertDialogDescription>\n        </AlertDialogHeader>\n        {requiresTypedConfirmation ? (\n          <div className=\"space-y-2\">\n            <p className=\"text-sm\">\n              Type <span className=\"font-medium\">{confirmText}</span> to\n              confirm.\n            </p>\n            <Input\n              value={typedConfirmation}\n              onChange={(event) => setTypedConfirmation(event.target.value)}\n              autoComplete=\"off\"\n            />\n          </div>\n        ) : null}\n        <AlertDialogFooter>\n          <AlertDialogCancel>Cancel</AlertDialogCancel>\n          <Button onClick={onConfirm} disabled={actionPending || !isConfirmed}>\n            {actionPending ? <Loader2 className=\"animate-spin\" /> : \"Confirm\"}\n          </Button>\n        </AlertDialogFooter>\n      </AlertDialogContent>\n    </AlertDialog>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

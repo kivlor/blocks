@@ -1,0 +1,98 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "blocks",
+  "homepage": "https://blocks.kivlor.com",
+  "items": [
+    {
+      "name": "confirm-action",
+      "type": "registry:ui",
+      "title": "Confirm Action",
+      "description": "A confirmation dialog that can require typed confirmation before running an action.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "alert-dialog",
+        "button",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "components/ui/confirm-action.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "data-table",
+      "type": "registry:ui",
+      "title": "Data Table",
+      "description": "A reusable TanStack table with search, filtering, pagination, sorting state, and row actions.",
+      "dependencies": [
+        "@tanstack/react-table",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "dropdown-menu",
+        "input",
+        "select",
+        "table"
+      ],
+      "files": [
+        {
+          "path": "components/ui/data-table.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dialog-form",
+      "type": "registry:ui",
+      "title": "Dialog Form",
+      "description": "A reusable dialog shell for forms with scrollable content.",
+      "registryDependencies": [
+        "dialog"
+      ],
+      "files": [
+        {
+          "path": "components/ui/dialog-form.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sheet-form",
+      "type": "registry:ui",
+      "title": "Sheet Form",
+      "description": "A reusable sheet shell for forms with scrollable content.",
+      "registryDependencies": [
+        "sheet"
+      ],
+      "files": [
+        {
+          "path": "components/ui/sheet-form.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "submit-button",
+      "type": "registry:ui",
+      "title": "Submit Button",
+      "description": "A submit button that disables itself and shows a spinner while pending.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "components/ui/submit-button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sheet-form",
+  "title": "Sheet Form",
+  "description": "A reusable sheet shell for forms with scrollable content.",
+  "registryDependencies": [
+    "sheet"
+  ],
+  "files": [
+    {
+      "path": "components/ui/sheet-form.tsx",
+      "content": "import type * as React from \"react\";\n\nimport {\n  Sheet,\n  SheetContent,\n  SheetHeader,\n  SheetTitle,\n} from \"@/components/ui/sheet\";\n\nexport type SheetFormProps = {\n  title: string;\n  open: boolean;\n  onOpenChange: (open: boolean) => void;\n  children: React.ReactNode;\n};\n\nexport function SheetForm({\n  title,\n  open,\n  onOpenChange,\n  children,\n}: SheetFormProps) {\n  return (\n    <Sheet open={open} onOpenChange={onOpenChange}>\n      <SheetContent className=\"w-full md:max-w-150 lg:max-w-200\">\n        <SheetHeader>\n          <SheetTitle>{title}</SheetTitle>\n        </SheetHeader>\n        <div className=\"grid flex-1 overflow-y-scroll px-4 pb-6\">\n          {children}\n        </div>\n      </SheetContent>\n    </Sheet>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}
