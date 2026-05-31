@@ -4,6 +4,14 @@
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
+## Deployment
+
+Alchemy is configured to use Cloudflare for persistent state storage during CI deployments. The GitHub Actions deploy job requires these repository secrets:
+
+- `ALCHEMY_PASSWORD`
+- `ALCHEMY_STATE_TOKEN` — use one stable, high-entropy token for all deployments on the Cloudflare account
+- `CLOUDFLARE_API_TOKEN`
+
 Currently, two official plugins are available:
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
